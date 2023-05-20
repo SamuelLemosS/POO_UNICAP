@@ -10,11 +10,11 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 
-public class ClienteP extends Cliente {
+public class ClientePremium extends Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private int cartao;
-    private int diasP;
-    private String agencia;
+	private String agencia;
+    	private int diasDePremium;
 }
