@@ -18,4 +18,8 @@ public class Cliente {
 	private String email;
 	@OneToMany(mappedBy = "cliente")
 	private List<Telefone> telefone;
+	@ManyToMany(mappedBy = "cliente")
+	private List<Destino> destinosComprados;
+	@ManyToMany(mappedBy = "cliente")
+	private List<Destino> destinosVisitados;
 }
