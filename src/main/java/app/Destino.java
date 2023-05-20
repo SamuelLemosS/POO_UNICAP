@@ -15,7 +15,9 @@ public class Destino {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-    private Datas datas;
-    private Local local;
-    private float valor;
+	@ManyToOne(mappedBy = "destino")
+    	private Datas datas;
+	@ManyToOne(mappedBy = "destino")
+    	private Local local;
+    	private float valor;
 }
