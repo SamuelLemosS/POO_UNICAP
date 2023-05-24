@@ -10,16 +10,16 @@ import java.util.List;
 @AllArgsConstructor
 @MappedSuperclass
 
-public class Cliente {
+public class ClienteModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String email;
 	@OneToMany(mappedBy = "cliente")
-	private List<Telefone> telefone;
+	private List<TelefoneModel> telefoneModel;
 	@ManyToMany(mappedBy = "cliente")
-	private List<Destino> destinosComprados;
+	private List<DestinoModel> destinosComprados;
 	@ManyToMany(mappedBy = "cliente")
-	private List<Destino> destinosVisitados;
+	private List<DestinoModel> destinosVisitados;
 }
