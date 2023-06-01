@@ -20,6 +20,4 @@ public class ClienteModel {
 	private List<TelefoneModel> telefoneModel;
 	@ManyToMany(mappedBy = "cliente")
 	private List<DestinoModel> destinosComprados;
-	@ManyToMany(mappedBy = "cliente")
-	private List<DestinoModel> destinosVisitados;
 }

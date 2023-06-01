@@ -14,6 +14,6 @@ public class TelefoneModel {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String ddd;
-	private String numero;
+	private int ddd;
+	private int numero;
 }
