@@ -11,7 +11,7 @@ public interface DestinoRepository extends JpaRepository<DestinoModel, Long> {
     DestinoModel findByNomeAndValor(String nome, float valor);
     List<DestinoModel> findByNome(String nome);
     List<DestinoModel> findByValor(float valor);
-    List<DestinoModel> findByDiaIsNotNullOrdederByValor();
-    List<DestinoModel> findByDiaIsNotNullOrdederById();
+//    List<DestinoModel> findByDiaIsNotNullOrderByValor();
+//    List<DestinoModel> findByDiaIsNotNullOrderById();
     void deleteByNomeAndValor(String nome, float valor);
 }

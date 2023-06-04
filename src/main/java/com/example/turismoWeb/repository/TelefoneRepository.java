@@ -11,6 +11,6 @@ import java.util.List;
 public interface TelefoneRepository extends JpaRepository<TelefoneModel, Long> {
     TelefoneModel findByDddAndNumero(int ddd, int numero);
     List<TelefoneModel> findByDdd(int ddd);
-    List<TelefoneModel> findByDddIsNotNullOrdederById();
+    List<TelefoneModel> findByDddIsNotNullOrderById();
     void deleteByDddAndNumero(int ddd, int numero);
 }

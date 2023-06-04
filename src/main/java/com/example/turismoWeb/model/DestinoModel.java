@@ -1,9 +1,11 @@
 package com.example.TurismoWeb.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.*;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,9 +17,9 @@ public class DestinoModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	@ManyToMany(mappedBy = "destino")
-    	private DatasModel datasModel;
-	@ManyToMany(mappedBy = "destino")
-    	private LocalModel localModel;
-    	private float valor;
+	private float valor;
+	@ManyToMany
+    	private List<DatasModel> datasModel;
+	@ManyToMany
+    	private List<LocalModel> localModel;
 }

@@ -11,7 +11,7 @@ public interface LocalRepository extends JpaRepository<LocalModel, Long> {
     LocalModel findByDistanciaAndCidade(int distancia,String cidade);
     List<LocalModel> findByEstado(String estado);
     List<LocalModel> findByCidade(String cidade);
-    List<LocalModel> findByDiaIsNotNullOrdederByDistancia();
-    List<LocalModel> findByDiaIsNotNullOrdederById();
+    List<LocalModel> findByEstadoIsNotNullOrderByDistancia();
+    List<LocalModel> findByCidadeIsNotNullOrderById();
     void deleteByDistanciaAndCidade(int distancia,String cidade);
 }

@@ -11,6 +11,6 @@ public interface DatasRepository extends JpaRepository<DatasModel, Long> {
     DatasModel findByDiaAndMesAndAno(int dia, int mes, int ano);
     List<DatasModel> findByMes(int mes);
     List<DatasModel> findByAno(int ano);
-    List<DatasModel> findByDiaIsNotNullOrdederById();
+    List<DatasModel> findByDiaIsNotNullOrderById();
     void deleteByDiaAndMesAndAno(int dia, int mes, int ano);
 }

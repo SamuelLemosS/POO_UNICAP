@@ -1,5 +1,6 @@
 package com.example.TurismoWeb.controller;
 
+import com.example.TurismoWeb.model.ClienteEntity;
 import com.example.TurismoWeb.model.ClienteModel;
 import com.example.TurismoWeb.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,10 @@ public class ClienteController {
     public ResponseEntity<ClienteModel> createCliente
             (@RequestBody ClienteModel cliente) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(clienteService.createCliente(cliente));
+                .body(clienteService.createCliente((ClienteEntity) cliente));
     }
     @RequestMapping(value="/list", method=RequestMethod.GET)
-    public ResponseEntity<List<ClienteModel>> readCliente() {
+    public ResponseEntity<List<ClienteEntity>> readCliente() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(clienteService.getAllClientes());
     }

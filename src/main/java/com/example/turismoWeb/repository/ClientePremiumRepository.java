@@ -9,10 +9,10 @@ import java.util.List;
 @Repository
 public interface ClientePremiumRepository extends JpaRepository<ClientePremiumModel, Long> {
     ClientePremiumModel findByNomeAndEmail(String nome, String email);
-    List<ClientePremiumModel> findAgencia(String agencia);
-    List<ClientePremiumModel> findDiasDePremium(int DiasDePremium);
-    List<ClientePremiumModel> findByNomeIsNotNullOrdederById();
-    List<ClientePremiumModel> findByNomeIsNotNullOrdederByDiasDePremium();
+    List<ClientePremiumModel> findByAgencia(String agencia);
+    List<ClientePremiumModel> findByDiasDePremium(int DiasDePremium);
+    List<ClientePremiumModel> findByNomeIsNotNullOrderById();
+    List<ClientePremiumModel> findByNomeIsNotNullOrderByDiasDePremium();
     void deleteByNomeAndEmail(String nome, String email);
 
 }

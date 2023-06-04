@@ -16,8 +16,8 @@ public class ClienteModel {
 	private Long id;
 	private String nome;
 	private String email;
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany
 	private List<TelefoneModel> telefoneModel;
-	@ManyToMany(mappedBy = "cliente")
-	private List<DestinoModel> destinosComprados;
+	@ManyToMany
+	private List<DestinoModel> destinoModel;
 }
