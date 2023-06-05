@@ -21,6 +21,11 @@ public class ClienteService {
         return clienteRepository.findById(id).orElseThrow(() ->
                 new NotFoundEntityException("Cliente nao encontrado!"));
     }
+    public ClienteEntity getClienteByNomeAndEmail(String nome, String email) throws NotFoundEntityException {
+        return clienteRepository.findByNomeAndEmail(nome,email).orElseThrow(() ->
+                new NotFoundEntityException("Cliente nao encontrado!"));
+    }
+
     public ClienteModel createCliente(ClienteEntity cliente) {
         return clienteRepository.save(cliente);
     }

@@ -17,7 +17,7 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @RequestMapping(value="/create", method= RequestMethod.POST)
-    public ResponseEntity<ClienteModel> createCliente
+    public ResponseEntity<ClienteEntity> createCliente
             (@RequestBody ClienteModel cliente) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(clienteService.createCliente((ClienteEntity) cliente));
@@ -29,7 +29,7 @@ public class ClienteController {
     }
 
     /*@RequestMapping(value="/delete/{clienteId}", method=RequestMethod.DELETE)
-    public ResponseEntity<ClienteModel> deleteCliente(
+    public ResponseEntity<ClienteEntity> deleteCliente(
             @PathVariable(value = "clienteId") Long id) {
         clienteService.deleteCliente(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);

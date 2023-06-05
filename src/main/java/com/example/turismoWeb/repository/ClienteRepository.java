@@ -8,6 +8,8 @@ import java.util.List;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
+    ClienteEntity findAll();
+    ClienteEntity findById(Long id);
     ClienteEntity findByNomeAndEmail(String nome, String email);
     long countByNome(String nome);
     List<ClienteEntity> findByNomeIsNotNullOrderById();
