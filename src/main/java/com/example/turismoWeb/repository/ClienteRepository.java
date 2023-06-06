@@ -15,4 +15,5 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
     List<ClienteEntity> findByNomeIsNotNullOrderById();
     List<ClienteEntity> findByNomeOrEmailIsNullOrderById(String nome);
     void deleteByNomeAndEmail(String nome, String email);
-}
+    void deleteById(Long id);
+    ClienteEntity save();

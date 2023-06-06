@@ -26,9 +26,11 @@ public class ClienteService {
                 new NotFoundEntityException("Cliente nao encontrado!"));
     }
 
-    public ClienteModel createCliente(ClienteEntity cliente) {
-        return clienteRepository.save(cliente);
+    public ClienteEntity deleteCliente(Long id) throws NotFoundEntityException {
+        return clienteRepository.deleteByNomeAndEmail(id).orElseThrow(() ->
+                new NotFoundEntityException("Cliente nao encontrado!"));
     }
 
-
-}
+    public ClienteEntity createCliente(ClienteEntity cliente) {
+        return clienteRepository.save(cliente);
+    }

@@ -28,12 +28,11 @@ public class ClienteController {
                 .body(clienteService.getAllClientes());
     }
 
-    /*@RequestMapping(value="/delete/{clienteId}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/delete/{clienteId}", method=RequestMethod.DELETE)
     public ResponseEntity<ClienteEntity> deleteCliente(
             @PathVariable(value = "clienteId") Long id) {
         clienteService.deleteCliente(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);
-    }*/
+    }
 
 }
-
