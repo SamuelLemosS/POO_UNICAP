@@ -1,5 +1,6 @@
 package com.example.TurismoWeb.controller;
 
+import com.example.TurismoWeb.exception.NotFoundEntityException;
 import com.example.TurismoWeb.model.ClienteEntity;
 import com.example.TurismoWeb.model.ClienteModel;
 import com.example.TurismoWeb.service.ClienteService;
@@ -30,7 +31,7 @@ public class ClienteController {
 
     @RequestMapping(value="/delete/{clienteId}", method=RequestMethod.DELETE)
     public ResponseEntity<ClienteEntity> deleteCliente(
-            @PathVariable(value = "clienteId") Long id) {
+            @PathVariable(value = "clienteId") Long id) throws NotFoundEntityException {
         clienteService.deleteCliente(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
