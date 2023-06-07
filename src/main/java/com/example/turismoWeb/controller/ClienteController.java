@@ -1,4 +1,4 @@
-package com.example.TurismoWeb.controller;
+package com.example.turismoWeb.controller;
 
 import com.example.TurismoWeb.model.ClienteEntity;
 import com.example.TurismoWeb.model.ClienteModel;
@@ -18,7 +18,7 @@ public class ClienteController {
 
     @RequestMapping(value="/create", method= RequestMethod.POST)
     public ResponseEntity<ClienteModel> createCliente
-            (@RequestBody ClienteModel cliente) {
+            (@RequestBody ClienteEntity cliente) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(clienteService.createCliente((ClienteEntity) cliente));
     }

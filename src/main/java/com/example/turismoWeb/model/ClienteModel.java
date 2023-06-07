@@ -1,10 +1,12 @@
-package com.example.TurismoWeb.model;
+package com.example.turismoWeb.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.*;
+
 import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +19,7 @@ public class ClienteModel {
 	private String nome;
 	private String email;
 	@OneToMany
-	private List<TelefoneModel> telefoneModel;
+	private List<com.example.TurismoWeb.model.TelefoneModel> telefoneModel;
 	@ManyToMany
 	private List<DestinoModel> destinoModel;
 }
