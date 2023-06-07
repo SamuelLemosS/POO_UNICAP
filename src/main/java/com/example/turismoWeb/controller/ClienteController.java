@@ -1,9 +1,8 @@
-package com.example.TurismoWeb.controller;
+package com.example.turismoWeb.controller;
 
-import com.example.TurismoWeb.exception.NotFoundEntityException;
-import com.example.TurismoWeb.model.ClienteEntity;
-import com.example.TurismoWeb.model.ClienteModel;
-import com.example.TurismoWeb.service.ClienteService;
+import com.example.turismoWeb.exception.NotFoundEntityException;
+import com.example.turismoWeb.model.ClienteEntity;
+import com.example.turismoWeb.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +18,7 @@ public class ClienteController {
 
     @RequestMapping(value="/create", method= RequestMethod.POST)
     public ResponseEntity<ClienteEntity> createCliente
-            (@RequestBody ClienteModel cliente) {
+            (@RequestBody ClienteEntity cliente) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(clienteService.createCliente((ClienteEntity) cliente));
     }

@@ -1,6 +1,6 @@
-package com.example.TurismoWeb.service;
+package com.example.turismoWeb.service;
 
-import com.example.TurismoWeb.repository.DestinoRepository;
+import com.example.turismoWeb.repository.DestinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

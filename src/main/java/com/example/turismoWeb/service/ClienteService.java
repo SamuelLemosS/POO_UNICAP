@@ -1,8 +1,8 @@
-package com.example.TurismoWeb.service;
+package com.example.turismoWeb.service;
 
-import com.example.TurismoWeb.exception.NotFoundEntityException;
-import com.example.TurismoWeb.model.ClienteEntity;
-import com.example.TurismoWeb.repository.ClienteRepository;
+import com.example.turismoWeb.exception.NotFoundEntityException;
+import com.example.turismoWeb.model.ClienteEntity;
+import com.example.turismoWeb.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
