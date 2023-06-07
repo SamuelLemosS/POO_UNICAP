@@ -1,6 +1,6 @@
-package com.example.TurismoWeb.repository;
+package com.example.turismoWeb.repository;
 
-import com.example.TurismoWeb.model.ClientePremiumModel;
+import com.example.turismoWeb.model.ClientePremiumModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,8 +1,8 @@
-package com.example.TurismoWeb.dto;
+package com.example.turismoWeb.dto;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

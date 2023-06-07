@@ -1,9 +1,8 @@
-package com.example.TurismoWeb.service;
+package com.example.turismoWeb.service;
 
-import com.example.TurismoWeb.exception.NotFoundEntityException;
-import com.example.TurismoWeb.model.ClienteEntity;
-import com.example.TurismoWeb.model.ClienteModel;
-import com.example.TurismoWeb.repository.ClienteRepository;
+import com.example.turismoWeb.exception.NotFoundEntityException;
+import com.example.turismoWeb.model.ClienteEntity;
+import com.example.turismoWeb.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +20,20 @@ public class ClienteService {
         return clienteRepository.findById(id).orElseThrow(() ->
                 new NotFoundEntityException("Cliente nao encontrado!"));
     }
-    public ClienteModel createCliente(ClienteEntity cliente) {
-        return clienteRepository.save(cliente);
+    public ClienteEntity getClienteByNomeAndEmail(String nome, String email){// throws NotFoundEntityException {
+        return clienteRepository.findByNomeAndEmail(nome,email);//.orElseThrow(() ->
+                //new NotFoundEntityException("Cliente nao encontrado!"));
     }
 
+    public ClienteEntity deleteCliente(Long id){// throws NotFoundEntityException {
+         clienteRepository.deleteById(id);//.orElseThrow(() ->
+                //new NotFoundEntityException("Cliente nao encontrado!"));
+        return null;
+    }
+
+    public ClienteEntity createCliente(ClienteEntity cliente) {
+        clienteRepository.save(cliente);
+        return cliente;
+    }
 
 }

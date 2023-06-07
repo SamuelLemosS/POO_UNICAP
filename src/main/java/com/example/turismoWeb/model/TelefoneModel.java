@@ -1,4 +1,4 @@
-package com.example.TurismoWeb.model;
+package com.example.turismoWeb.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

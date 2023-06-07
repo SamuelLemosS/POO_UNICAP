@@ -1,4 +1,4 @@
-package com.example.TurismoWeb.dto;
+package com.example.turismoWeb.dto;
 
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
