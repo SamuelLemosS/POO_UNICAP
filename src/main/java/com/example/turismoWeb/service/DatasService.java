@@ -16,7 +16,7 @@ public class DatasService {
     public List<DatasModel> getAllDatas() {
         return datasRepository.findAll();
     }
-    public DatasModel getClienteById(Long id) throws NotFoundEntityException {
+    public DatasModel getDatasById(Long id) throws NotFoundEntityException {
         return datasRepository.findById(id).orElseThrow(() ->
                 new NotFoundEntityException("Data nao encontrado!"));
     }
@@ -24,13 +24,13 @@ public class DatasService {
         return datasRepository.findByDiaAndMesAndAno( dia,  mes,  ano);//.orElseThrow(() ->
         //new NotFoundEntityException("Cliente nao encontrado!"));
     }
-    public DatasModel deleteCliente(Long id){// throws NotFoundEntityException {
+    public DatasModel deleteDatas(Long id){// throws NotFoundEntityException {
         datasRepository.deleteById(id);//.orElseThrow(() ->
         //new NotFoundEntityException("Cliente nao encontrado!"));
         return null;
     }
 
-    public DatasModel createCliente(DatasModel data) {
+    public DatasModel createDatas(DatasModel data) {
         datasRepository.save(data);
         return data;
     }
