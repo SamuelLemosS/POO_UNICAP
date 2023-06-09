@@ -12,26 +12,47 @@ import java.util.List;
 public class LocalService {
     @Autowired
     private LocalRepository localRepository;
-    public List<LocalModel> getAllDatas() {
+    public LocalModel createLocal(LocalModel local) {
+        localRepository.save(local);
+        return local;
+    }
+
+    public List<LocalModel> getAllLocal() {
         return localRepository.findAll();
     }
-    public LocalModel getClienteById(Long id) throws NotFoundEntityException {
-        return localRepository.findById(id).orElseThrow(() ->
-                new NotFoundEntityException("Data nao encontrado!"));
+    public List<LocalModel> getIsNull() {
+        return localRepository.findByCidadeIsNullOrderById();
     }
-    public LocalModel findByDistanciaAndCidade(int distancia,String cidade){// throws NotFoundEntityException {
-        return localRepository.findByDistanciaAndCidade( distancia, cidade);//.orElseThrow(() ->
+    public LocalModel getLocalById(Long id) throws NotFoundEntityException {
+        return localRepository.findById(id).orElseThrow(() ->
+                new NotFoundEntityException("Local nao encontrado!"));
+    }
+    public List<LocalModel> getCidade(String cidade){// throws NotFoundEntityException {
+        return localRepository.findByCidadeOrderByDistancia(cidade);//.orElseThrow(() ->
         //new NotFoundEntityException("Cliente nao encontrado!"));
     }
-    public LocalModel deleteCliente(Long id){// throws NotFoundEntityException {
+    public List<LocalModel> getEstado(String estado){// throws NotFoundEntityException {
+        return localRepository.findByEstadoOrderByDistancia(estado);//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
+    }
+    public long count(){// throws NotFoundEntityException {
+        return localRepository.count();//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
+    }
+
+    public LocalModel deleteLocal(Long id){// throws NotFoundEntityException {
         localRepository.deleteById(id);//.orElseThrow(() ->
         //new NotFoundEntityException("Cliente nao encontrado!"));
         return null;
     }
+    public LocalModel deleteDistanciaCidade(int distancia, String cidade){// throws NotFoundEntityException {
+        localRepository.deleteByDistanciaAndCidade(distancia,cidade);//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
+        return null;
+    }
 
-    public LocalModel createCliente(LocalModel local) {
-        localRepository.save(local);
-        return local;
+    public Object updateLocal(Long id, LocalModel local) {
+        return null;
     }
 
 }

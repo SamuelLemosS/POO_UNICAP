@@ -10,11 +10,11 @@ import java.util.Optional;
 @Repository
 public interface DatasRepository extends JpaRepository<DatasModel, Long> {
     List<DatasModel> findAll();
+    List<DatasModel> findByDiaIsNullOrderById();
     Optional<DatasModel> findById(Long id);
-    void deleteById(Long id);
-    DatasModel findByDiaAndMesAndAno(int dia, int mes, int ano);
     List<DatasModel> findByMes(int mes);
     List<DatasModel> findByAno(int ano);
-    List<DatasModel> findByDiaIsNotNullOrderById();
+    long count();
+    void deleteById(Long id);
     void deleteByDiaAndMesAndAno(int dia, int mes, int ano);
 }

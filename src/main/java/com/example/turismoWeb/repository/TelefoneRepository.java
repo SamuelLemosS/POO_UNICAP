@@ -11,10 +11,10 @@ import java.util.Optional;
 @Repository
 public interface TelefoneRepository extends JpaRepository<TelefoneModel, Long> {
     List<TelefoneModel> findAll();
+    List<TelefoneModel> findByDddNullOrderById();
     Optional<TelefoneModel> findById(Long id);
-    void deleteById(Long id);
-    TelefoneModel findByDddAndNumero(int ddd, int numero);
     List<TelefoneModel> findByDdd(int ddd);
-    List<TelefoneModel> findByDddIsNotNullOrderById();
+    long count();
+    void deleteById(Long id);
     void deleteByDddAndNumero(int ddd, int numero);
 }

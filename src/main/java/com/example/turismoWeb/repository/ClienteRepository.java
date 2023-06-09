@@ -12,9 +12,8 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
     List<ClienteEntity> findAll();
     Optional<ClienteEntity> findById(Long id);
     ClienteEntity findByNomeAndEmail(String nome, String email);
-    long countByNome(String nome);
-    List<ClienteEntity> findByNomeIsNotNullOrderById();
-    List<ClienteEntity> findByNomeOrEmailIsNullOrderById(String nome);
+    long count();
+    List<ClienteEntity> findByNomeIsNullOrderById();
     void deleteByNomeAndEmail(String nome, String email);
     void deleteById(Long id);
 

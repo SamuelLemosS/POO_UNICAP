@@ -22,12 +22,26 @@ public class ClienteService {
     }
     public ClienteEntity getClienteByNomeAndEmail(String nome, String email){// throws NotFoundEntityException {
         return clienteRepository.findByNomeAndEmail(nome,email);//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
+    }
+    public long count(){// throws NotFoundEntityException {
+        return clienteRepository.count();//.orElseThrow(() ->
                 //new NotFoundEntityException("Cliente nao encontrado!"));
     }
+    public List<ClienteEntity> getNomeOrEmailIsNull(){// throws NotFoundEntityException {
+        return clienteRepository.findByNomeIsNullOrderById();//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
+    }
+
 
     public ClienteEntity deleteCliente(Long id){// throws NotFoundEntityException {
          clienteRepository.deleteById(id);//.orElseThrow(() ->
                 //new NotFoundEntityException("Cliente nao encontrado!"));
+        return null;
+    }
+    public ClienteEntity deleteByNomeAndEmail(String nome, String email){// throws NotFoundEntityException {
+        clienteRepository.deleteByNomeAndEmail(nome, email);//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
         return null;
     }
 
@@ -36,4 +50,7 @@ public class ClienteService {
         return cliente;
     }
 
+    public Object updateCliente(Long id, ClienteEntity cliente) {
+        return null;
+    }
 }

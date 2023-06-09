@@ -1,4 +1,4 @@
-package com.example.TurismoWeb;
+package com.example.turismoWeb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
