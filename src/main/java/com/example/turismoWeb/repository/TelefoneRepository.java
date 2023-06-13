@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface TelefoneRepository extends JpaRepository<TelefoneModel, Long> {
     List<TelefoneModel> findAll();
-    List<TelefoneModel> findByDddNullOrderById();
+    List<TelefoneModel> findByIdIsNullOrDddNullOrNumeroIsNullOrderById();
     Optional<TelefoneModel> findById(Long id);
     List<TelefoneModel> findByDdd(int ddd);
     long count();

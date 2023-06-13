@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface ClientePremiumRepository extends JpaRepository<ClientePremiumModel, Long> {
     List<ClientePremiumModel> findAll();
     List<ClientePremiumModel> findByNomeIsNotNullOrderByDiasDePremium();
-    List<ClientePremiumModel> findByNomeNullOrderById();
+    List<ClientePremiumModel> findByIdIsNullOrNomeIsNullOrEmailIsNullOrAgenciaIsNullOrDiasDePremiumIsNullOrderById();
     Optional<ClientePremiumModel> findById(Long id);
     ClientePremiumModel findByNomeAndEmail(String nome, String email);
     List<ClientePremiumModel> findByAgencia(String agencia);

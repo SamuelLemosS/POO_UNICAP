@@ -1,10 +1,7 @@
 package com.example.turismoWeb.controller;
 
 import com.example.turismoWeb.exception.NotFoundEntityException;
-import com.example.turismoWeb.model.ClientePremiumModel;
-import com.example.turismoWeb.model.DatasModel;
 import com.example.turismoWeb.model.TelefoneModel;
-import com.example.turismoWeb.service.DatasService;
 import com.example.turismoWeb.service.TelefoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +32,7 @@ public class TelefoneController {
     @RequestMapping(value="/vazio", method=RequestMethod.GET)
     public ResponseEntity<List<TelefoneModel>> semTelefone() {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(telefoneService.getIsNull());
+                .body(telefoneService.getTelefoneNull());
     }
     @RequestMapping(value="/lista/{telefoneId}", method=RequestMethod.GET)
     public ResponseEntity<TelefoneModel> listIdTelefone(

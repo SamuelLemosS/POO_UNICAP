@@ -22,8 +22,8 @@ public class TelefoneService {
     public List<TelefoneModel> getAllTelefone() {
         return telefoneRepository.findAll();
     }
-    public List<TelefoneModel> getIsNull() {
-        return telefoneRepository.findByDddNullOrderById();
+    public List<TelefoneModel> getTelefoneNull() {
+        return telefoneRepository.findByIdIsNullOrDddNullOrNumeroIsNullOrderById();
     }
     public TelefoneModel getTelefoneId(Long id) throws NotFoundEntityException {
         return telefoneRepository.findById(id).orElseThrow(() ->

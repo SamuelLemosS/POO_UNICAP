@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface DestinoRepository extends JpaRepository<DestinoModel, Long> {
     List<DestinoModel> findAll();
-    List<DestinoModel> findByNomeIsNullOrderByValor();
+    List<DestinoModel> findByIdIsNullOrNomeIsNullOrValorIsNullOrderByValor();
     Optional<DestinoModel> findById(Long id);
     List<DestinoModel> findByNome(String nome);
     List<DestinoModel> findByValor(float valor);

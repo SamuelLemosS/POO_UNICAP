@@ -20,8 +20,8 @@ public class LocalService {
     public List<LocalModel> getAllLocal() {
         return localRepository.findAll();
     }
-    public List<LocalModel> getIsNull() {
-        return localRepository.findByCidadeIsNullOrderById();
+    public List<LocalModel> getLocalNull() {
+        return localRepository.findByIdIsNullOrEstadoIsNullOrCidadeIsNullOrDistanciaIsNullOrderById();
     }
     public LocalModel getLocalById(Long id) throws NotFoundEntityException {
         return localRepository.findById(id).orElseThrow(() ->

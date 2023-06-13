@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface LocalRepository extends JpaRepository<LocalModel, Long> {
     List<LocalModel> findAll();
-    List<LocalModel> findByCidadeIsNullOrderById();
+    List<LocalModel> findByIdIsNullOrEstadoIsNullOrCidadeIsNullOrDistanciaIsNullOrderById();
     Optional<LocalModel> findById(Long id);
     List<LocalModel> findByEstadoOrderByDistancia(String estado);
     List<LocalModel> findByCidadeOrderByDistancia(String cidade);

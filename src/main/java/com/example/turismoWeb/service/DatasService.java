@@ -28,8 +28,8 @@ public class DatasService {
     public List<DatasModel> getAllDatas() {
         return datasRepository.findAll();
     }
-    public List<DatasModel> getDiaIsNull() {
-        return datasRepository.findByDiaIsNullOrderById();
+    public List<DatasModel> getDatasNull() {
+        return datasRepository.findByIdIsNullOrDiaIsNullOrMesIsNullOrAnoIsNullOrderById();
     }
     public DatasModel getDatasById(Long id) throws NotFoundEntityException {
         return datasRepository.findById(id).orElseThrow(() ->

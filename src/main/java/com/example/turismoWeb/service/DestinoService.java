@@ -22,8 +22,8 @@ public class DestinoService {
     public List<DestinoModel> getAllDestino() {
         return destinoRepository.findAll();
     }
-    public List<DestinoModel> getIsNull() {
-        return destinoRepository.findByNomeIsNullOrderByValor();
+    public List<DestinoModel> getDestinoNull() {
+        return destinoRepository.findByIdIsNullOrNomeIsNullOrValorIsNullOrderByValor();
     }
     public DestinoModel getDestinoId(Long id) throws NotFoundEntityException {
         return destinoRepository.findById(id).orElseThrow(() ->

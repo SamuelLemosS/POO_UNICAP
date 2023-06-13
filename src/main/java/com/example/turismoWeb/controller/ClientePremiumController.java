@@ -1,10 +1,8 @@
 package com.example.turismoWeb.controller;
 
 import com.example.turismoWeb.exception.NotFoundEntityException;
-import com.example.turismoWeb.model.ClienteEntity;
 import com.example.turismoWeb.model.ClientePremiumModel;
 import com.example.turismoWeb.service.ClientePremiumService;
-import com.example.turismoWeb.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +36,7 @@ public class ClientePremiumController {
     @RequestMapping(value="/semNomeEmail", method=RequestMethod.GET)
     public ResponseEntity<List<ClientePremiumModel>> semNomeEmailClientePremium() {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(clientePremiumService.getNomeOrEmailIsNull());
+                .body(clientePremiumService.getClientePremiumNull());
     }
     @RequestMapping(value="/lista/{clienteId}", method=RequestMethod.GET)
     public ResponseEntity<ClientePremiumModel> listIdClientePremium(

@@ -1,10 +1,7 @@
 package com.example.turismoWeb.controller;
 
 import com.example.turismoWeb.exception.NotFoundEntityException;
-import com.example.turismoWeb.model.ClientePremiumModel;
-import com.example.turismoWeb.model.DatasModel;
 import com.example.turismoWeb.model.LocalModel;
-import com.example.turismoWeb.service.DatasService;
 import com.example.turismoWeb.service.LocalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +32,7 @@ public class LocalController {
     @RequestMapping(value="/vazio", method=RequestMethod.GET)
     public ResponseEntity<List<LocalModel>> semLocal() {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(localService.getIsNull());
+                .body(localService.getLocalNull());
     }
     @RequestMapping(value="/lista/{localId}", method=RequestMethod.GET)
     public ResponseEntity<LocalModel> listIdLocal(

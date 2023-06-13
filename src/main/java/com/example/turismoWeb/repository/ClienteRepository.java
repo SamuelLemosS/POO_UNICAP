@@ -13,7 +13,7 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
     Optional<ClienteEntity> findById(Long id);
     ClienteEntity findByNomeAndEmail(String nome, String email);
     long count();
-    List<ClienteEntity> findByNomeIsNullOrderById();
+    List<ClienteEntity> findByIdIsNullOrNomeIsNullOrEmailIsNullOrderById();
     void deleteByNomeAndEmail(String nome, String email);
     void deleteById(Long id);
 

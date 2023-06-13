@@ -32,7 +32,7 @@ public class DestinoController {
     @RequestMapping(value="/vazio", method=RequestMethod.GET)
     public ResponseEntity<List<DestinoModel>> semDestino() {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(destinoService.getIsNull());
+                .body(destinoService.getDestinoNull());
     }
     @RequestMapping(value="/lista/{destinoId}", method=RequestMethod.GET)
     public ResponseEntity<DestinoModel> listIdDestino(

@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface DatasRepository extends JpaRepository<DatasModel, Long> {
     List<DatasModel> findAll();
-    List<DatasModel> findByDiaIsNullOrderById();
+    List<DatasModel> findByIdIsNullOrDiaIsNullOrMesIsNullOrAnoIsNullOrderById();
     Optional<DatasModel> findById(Long id);
     List<DatasModel> findByMes(int mes);
     List<DatasModel> findByAno(int ano);

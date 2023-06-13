@@ -28,8 +28,8 @@ public class ClienteService {
         return clienteRepository.count();//.orElseThrow(() ->
                 //new NotFoundEntityException("Cliente nao encontrado!"));
     }
-    public List<ClienteEntity> getNomeOrEmailIsNull(){// throws NotFoundEntityException {
-        return clienteRepository.findByNomeIsNullOrderById();//.orElseThrow(() ->
+    public List<ClienteEntity> getClienteNull(){// throws NotFoundEntityException {
+        return clienteRepository.findByIdIsNullOrNomeIsNullOrEmailIsNullOrderById();//.orElseThrow(() ->
         //new NotFoundEntityException("Cliente nao encontrado!"));
     }
 

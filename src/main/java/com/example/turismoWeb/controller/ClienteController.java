@@ -42,7 +42,7 @@ public class ClienteController {
     @RequestMapping(value="/semNomeEmail", method=RequestMethod.GET)
     public ResponseEntity<List<ClienteEntity>> semNomeEmailCliente() {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(clienteService.getNomeOrEmailIsNull());
+                .body(clienteService.getClienteNull());
     }
     @RequestMapping(value="/achar/{nome}/{email}", method=RequestMethod.DELETE)
     public ResponseEntity<ClienteEntity> acharNomeEmailCliente(

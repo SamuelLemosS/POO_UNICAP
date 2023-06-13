@@ -24,8 +24,8 @@ public class ClientePremiumService {
     public List<ClientePremiumModel> getOrderByDiasDePremium() {
         return clientePremiumRepository.findByNomeIsNotNullOrderByDiasDePremium();
     }
-    public List<ClientePremiumModel> getNomeOrEmailIsNull(){// throws NotFoundEntityException {
-        return clientePremiumRepository.findByNomeNullOrderById();//.orElseThrow(() ->
+    public List<ClientePremiumModel> getClientePremiumNull(){// throws NotFoundEntityException {
+        return clientePremiumRepository.findByIdIsNullOrNomeIsNullOrEmailIsNullOrAgenciaIsNullOrDiasDePremiumIsNullOrderById();//.orElseThrow(() ->
         //new NotFoundEntityException("Cliente nao encontrado!"));
     }
     public ClientePremiumModel getClientePremiumById(Long id) throws NotFoundEntityException {
