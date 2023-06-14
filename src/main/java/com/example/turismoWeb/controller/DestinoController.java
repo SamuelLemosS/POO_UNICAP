@@ -59,7 +59,7 @@ public class DestinoController {
         destinoService.getNomeValor(nome, valor);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
-    @RequestMapping(value="/quantidae", method=RequestMethod.GET)
+    @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeDestino() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(destinoService.count());

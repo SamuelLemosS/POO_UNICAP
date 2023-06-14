@@ -15,17 +15,61 @@ public class TurismoWebApplication {
 }
 
 
-//-------------------------------------
+//------------------------------------------id/dia/mes/ano
+//--datas/criar               		 V
+//--datas/listarTodos          		 V
+//--datas/semDia		       		 V
+//--datas/listaId/{datasId}	   		 X
+//--datas/listaMes/{mes}	   		 X
+//--datas/listaAno/{ano}	  		 X
+//--datas/quantidade		  		 V
+//--datas/delete/{datasId}			 V
+//--datas/delete/{dia}/{mes}/{ano}	 X
+//--datas/update/{datasId}			 X
+//----------------------------------id/estado/cidade/distancia
+//--local/criar								V
+//--local/listarTodos						V
+//--local/vazio								V
+//--local/lista/{localId}					X
+//--local/lista/{cidade}					X
+//--local/lista/{estado}					X
+//--local/quantidade						V
+//--local/delete/{localId}					V
+//--local/delete/{distancia}/{cidade}		X
+//--local/update/{localId}					X
+//----------------------------------id/nome/valor/data/local
+//--destino/criar
+//--destino/listarTodos
+//--destino/vazio
+//--destino/lista/{destinoId}
+//--destino/lista/{nome}
+//--destino/lista/{valor}
+//--destino/lista/{nome}/{valor}
+//--destino/quantidade
+//--destino/delete/{destinoId}
+//--destino/delete/{nome}/{valor}
+//--destino/update/{destinoId}
+//-------------------------------------id/ddd/numero
+//--telefone/criar
+//--telefone/listarTodos
+//--telefone/vazio
+//--telefone/lista/{telefoneId}
+//--telefone/lista/{ddd}
+//--telefone/quantidade
+//--telefone/delete/{telefoneId}
+//--telefone/delete/{ddd}/{numero}
+//--telefone/update/{telefoneId}
+//-------------------------------------id/nome/email/telefone/destino/diaSemPremium
 //--clientes/criar
 //--clientes/listarTodos
 //--clientes/lista/{clienteId}
-//--clientes/quantidae
+//--clientes/quantidade
 //--clientes/semNomeEmail
 //--clientes/achar/{nome}/{email}
 //--clientes/delete/{nome}/{email}
 //--clientes/delete/{clienteId}
 //--clientes/update/{clienteId}
-//-------------------------------------
+//-------------------------------------id/nome/email/telefone/destino/Agencia/diaDePremium
 //--clientesPremium/criar
 //--clientesPremium/listarTodos
 //--clientesPremium/maisPremium
@@ -34,51 +78,7 @@ public class TurismoWebApplication {
 //--clientesPremium/lista/{agencia}
 //--clientesPremium/lista/{diasDePremium}
 //--clientesPremium/achar/{nome}/{email}
-//--clientesPremium/quantidae
+//--clientesPremium/quantidade
 //--clientesPremium/delete/{clientePremiumId}
 //--clientesPremium/delete/{nome}/{email}
 //--clientesPremium/update/{clientePremiumId}
-//------------------------------------------
-//--datas/criar
-//--datas/listarTodos
-//--datas/semDia
-//--datas/lista/{datasId}
-//--datas/lista/{mes}
-//--datas/lista/{ano}
-//--datas/quantidae
-//--datas/delete/{datasId}
-//--datas/delete/{dia}/{mes}/{ano}
-//--datas/update/{datasId}
-//----------------------------------
-//--destino/criar
-//--destino/listarTodos
-//--destino/vazio
-//--destino/lista/{destinoId}
-//--destino/lista/{nome}
-//--destino/lista/{valor}
-//--destino/lista/{nome}/{valor}
-//--destino/quantidae
-//--destino/delete/{destinoId}
-//--destino/delete/{nome}/{valor}
-//--destino/update/{destinoId}
-//----------------------------------
-//--local/criar
-//--local/listarTodos
-//--local/vazio
-//--local/lista/{localId}
-//--local/lista/{cidade}
-//--local/lista/{estado}
-//--local/quantidae
-//--local/delete/{localId}
-//--local/delete/{distancia}/{cidade}
-//--local/update/{localId}
-//-------------------------------------
-//--telefone/criar
-//--telefone/listarTodos
-//--telefone/vazio
-//--telefone/lista/{telefoneId}
-//--telefone/lista/{ddd}
-//--telefone/quantidae
-//--telefone/delete/{telefoneId}
-//--telefone/delete/{ddd}/{numero}
-//--telefone/update/{telefoneId}

@@ -34,7 +34,7 @@ public class ClienteController {
         clienteService.getClienteById(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
-    @RequestMapping(value="/quantidae", method=RequestMethod.GET)
+    @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeCliente() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(clienteService.count());

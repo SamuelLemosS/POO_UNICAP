@@ -34,25 +34,25 @@ public class DatasController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(datasService.getDatasNull());
     }
-    @RequestMapping(value="/lista/{dataId}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaId/{datasId}", method=RequestMethod.GET)
     public ResponseEntity<DatasModel> listIdDatas(
-            @PathVariable(value = "dataId") Long id) throws NotFoundEntityException {
+            @PathVariable(value = "datasId") Long id) throws NotFoundEntityException {
         datasService.getDatasById(id);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
-    @RequestMapping(value="/lista/{mes}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaMes/{mes}", method=RequestMethod.GET)
     public ResponseEntity<DatasModel> listMesDatas(
             @PathVariable(value = "mes") int mes) throws NotFoundEntityException {
         datasService.getMes(mes);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
-    @RequestMapping(value="/lista/{ano}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaAno/{ano}", method=RequestMethod.GET)
     public ResponseEntity<DatasModel> listAnoDatas(
             @PathVariable(value = "ano") int ano) throws NotFoundEntityException {
         datasService.getAno(ano);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
-    @RequestMapping(value="/quantidae", method=RequestMethod.GET)
+    @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeDatas() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(datasService.count());
@@ -74,9 +74,9 @@ public class DatasController {
     }
 
 
-    @RequestMapping(value="/update/{dataId}", method=RequestMethod.PUT)
+    @RequestMapping(value="/update/{datasId}", method=RequestMethod.PUT)
     public ResponseEntity<DatasModel> updateData(
-            @PathVariable(value = "dataId") Long id,
+            @PathVariable(value = "datasId") Long id,
             @RequestBody DatasModel data) throws NotFoundEntityException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body((DatasModel) datasService.updateData(id, data));

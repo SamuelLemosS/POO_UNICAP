@@ -52,7 +52,7 @@ public class LocalController {
         localService.getEstado(estado);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
-    @RequestMapping(value="/quantidae", method=RequestMethod.GET)
+    @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeLocal() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(localService.count());

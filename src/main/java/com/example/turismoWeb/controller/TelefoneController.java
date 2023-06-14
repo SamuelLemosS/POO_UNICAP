@@ -46,7 +46,7 @@ public class TelefoneController {
         telefoneService.getDdd(ddd);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
-    @RequestMapping(value="/quantidae", method=RequestMethod.GET)
+    @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeTelefone() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(telefoneService.count());

@@ -63,7 +63,7 @@ public class ClientePremiumController {
         clientePremiumService.getClientePremiumByNomeAndEmail(nome,email);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
-    @RequestMapping(value="/quantidae", method=RequestMethod.GET)
+    @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeClientePremium() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(clientePremiumService.count());
