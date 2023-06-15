@@ -1,10 +1,12 @@
 package com.example.turismoWeb.service;
 
 import com.example.turismoWeb.exception.NotFoundEntityException;
+import com.example.turismoWeb.model.DatasModel;
 import com.example.turismoWeb.model.LocalModel;
 import com.example.turismoWeb.model.TelefoneModel;
 import com.example.turismoWeb.repository.TelefoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,8 +52,13 @@ public class TelefoneService {
         return null;
     }
 
-    public Object updateTelefone(Long id, TelefoneModel telefone) {
-        return null;
+    public Object updateTelefone(Long id, TelefoneModel telefone) throws ChangeSetPersister.NotFoundException {
+        TelefoneModel telefoneExistente = telefoneRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        telefoneExistente.setId(telefone.getId());
+        telefoneExistente.setDdd(telefone.getDdd());
+        telefoneExistente.setNumero(telefone.getNumero());
+
+        return telefoneRepository.save(telefoneExistente);
     }
 
 }

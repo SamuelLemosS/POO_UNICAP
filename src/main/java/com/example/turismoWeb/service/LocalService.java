@@ -1,9 +1,11 @@
 package com.example.turismoWeb.service;
 
 import com.example.turismoWeb.exception.NotFoundEntityException;
+import com.example.turismoWeb.model.DatasModel;
 import com.example.turismoWeb.model.LocalModel;
 import com.example.turismoWeb.repository.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -51,8 +53,14 @@ public class LocalService {
         return null;
     }
 
-    public Object updateLocal(Long id, LocalModel local) {
-        return null;
+    public Object updateLocal(Long id, LocalModel local) throws ChangeSetPersister.NotFoundException {
+        LocalModel localExistente = localRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        localExistente.setId(local.getId());
+        localExistente.setEstado(local.getEstado());
+        localExistente.setCidade(local.getCidade());
+        localExistente.setDistancia(local.getDistancia());
+
+        return localRepository.save(localExistente);
     }
 
 }

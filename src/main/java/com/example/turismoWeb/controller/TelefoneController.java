@@ -4,6 +4,7 @@ import com.example.turismoWeb.exception.NotFoundEntityException;
 import com.example.turismoWeb.model.TelefoneModel;
 import com.example.turismoWeb.service.TelefoneService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -70,7 +71,7 @@ public class TelefoneController {
     @RequestMapping(value="/update/{telefoneId}", method=RequestMethod.PUT)
     public ResponseEntity<TelefoneModel> updateTelefone(
             @PathVariable(value = "telefoneId") Long id,
-            @RequestBody TelefoneModel telefone) throws NotFoundEntityException {
+            @RequestBody TelefoneModel telefone) throws NotFoundEntityException, ChangeSetPersister.NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body((TelefoneModel) telefoneService.updateTelefone(id, telefone));
 

@@ -4,6 +4,7 @@ import com.example.turismoWeb.exception.NotFoundEntityException;
 import com.example.turismoWeb.model.LocalModel;
 import com.example.turismoWeb.service.LocalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -76,7 +77,7 @@ public class LocalController {
     @RequestMapping(value="/update/{localId}", method=RequestMethod.PUT)
     public ResponseEntity<LocalModel> updateLocal(
             @PathVariable(value = "localId") Long id,
-            @RequestBody LocalModel local) throws NotFoundEntityException {
+            @RequestBody LocalModel local) throws NotFoundEntityException, ChangeSetPersister.NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body((LocalModel) localService.updateLocal(id, local));
 

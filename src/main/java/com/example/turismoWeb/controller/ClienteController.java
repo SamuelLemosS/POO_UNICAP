@@ -4,6 +4,7 @@ import com.example.turismoWeb.exception.NotFoundEntityException;
 import com.example.turismoWeb.model.ClienteEntity;
 import com.example.turismoWeb.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -69,7 +70,7 @@ public class ClienteController {
     @RequestMapping(value="/update/{clienteId}", method=RequestMethod.PUT)
     public ResponseEntity<ClienteEntity> updateCliente(
             @PathVariable(value = "clienteId") Long id,
-            @RequestBody ClienteEntity cliente) throws NotFoundEntityException {
+            @RequestBody ClienteEntity cliente) throws NotFoundEntityException, ChangeSetPersister.NotFoundException {
         return ResponseEntity.status(HttpStatus.OK)
                 .body((ClienteEntity) clienteService.updateCliente(id, cliente));
 

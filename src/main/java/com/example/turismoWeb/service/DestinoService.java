@@ -1,10 +1,12 @@
 package com.example.turismoWeb.service;
 
 import com.example.turismoWeb.exception.NotFoundEntityException;
+import com.example.turismoWeb.model.DatasModel;
 import com.example.turismoWeb.model.DestinoModel;
 import com.example.turismoWeb.model.LocalModel;
 import com.example.turismoWeb.repository.DestinoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -58,8 +60,15 @@ public class DestinoService {
         return null;
     }
 
-    public Object updateDestino(Long id, DestinoModel destino) {
-        return null;
+    public Object updateDestino(Long id, DestinoModel destino) throws ChangeSetPersister.NotFoundException {
+        DestinoModel destinoExistente = destinoRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        destinoExistente.setId(destino.getId());
+        destinoExistente.setNome(destino.getNome());
+        destinoExistente.setValor(destino.getValor());
+        destinoExistente.setDatasModel(destino.getDatasModel());
+        destinoExistente.setLocalModel(destino.getLocalModel());
+
+        return destinoRepository.save(destinoExistente);
     }
 
 

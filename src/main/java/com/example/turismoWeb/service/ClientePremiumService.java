@@ -1,9 +1,11 @@
 package com.example.turismoWeb.service;
 
 import com.example.turismoWeb.exception.NotFoundEntityException;
+import com.example.turismoWeb.model.ClienteEntity;
 import com.example.turismoWeb.model.ClientePremiumModel;
 import com.example.turismoWeb.repository.ClientePremiumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -62,7 +64,16 @@ public class ClientePremiumService {
         return null;
     }
 
-    public Object updateClientePremium(Long id, ClientePremiumModel cliente) {
-        return null;
+    public Object updateClientePremium(Long id, ClientePremiumModel cliente) throws ChangeSetPersister.NotFoundException {
+        ClientePremiumModel clienteExistente = clientePremiumRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        clienteExistente.setId(cliente.getId());
+        clienteExistente.setNome(cliente.getNome());
+        clienteExistente.setEmail(cliente.getEmail());
+        clienteExistente.setTelefoneModel(cliente.getTelefoneModel());
+        clienteExistente.setDestinoModel(cliente.getDestinoModel());
+        clienteExistente.setAgencia(cliente.getAgencia());
+        clienteExistente.setDiasDePremium(cliente.getDiasDePremium());
+
+        return clientePremiumRepository.save(clienteExistente);
     }
 }
