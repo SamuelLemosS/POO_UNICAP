@@ -25,7 +25,7 @@ public class TurismoWebApplication {
 //--datas/quantidade		  		 V
 //--datas/delete/{datasId}			 V
 //--datas/delete/{dia}/{mes}/{ano}	 X
-//--datas/update/{datasId}			 X
+//--datas/update/{datasId}			 V
 //----------------------------------id/estado/cidade/distancia
 //--local/criar								V
 //--local/listarTodos						V

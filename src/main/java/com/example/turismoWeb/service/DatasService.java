@@ -5,6 +5,7 @@ import com.example.turismoWeb.model.ClientePremiumModel;
 import com.example.turismoWeb.model.DatasModel;
 import com.example.turismoWeb.repository.DatasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -59,8 +60,15 @@ public class DatasService {
         return null;
     }
 
-    public Object updateData(Long id, DatasModel data) {
-        return null;
+    public DatasModel updateData(Long id, DatasModel data) throws ChangeSetPersister.NotFoundException {
+        DatasModel datasExistente = datasRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        datasExistente.setId(data.getId());
+        datasExistente.setDia(data.getDia());
+        datasExistente.setMes(data.getMes());
+        datasExistente.setAno(data.getAno());
+
+        return datasRepository.save(datasExistente);
+
     }
 
 
