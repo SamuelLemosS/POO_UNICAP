@@ -41,14 +41,14 @@ public class LocalController {
         return ResponseEntity.status(HttpStatus.OK).body(localService.getLocalById(id));
     }
     @RequestMapping(value="/listaCidade/{cidade}", method=RequestMethod.GET)
-    public ResponseEntity<LocalModel> listCidadeLocal(
+    public ResponseEntity<List<LocalModel>> listCidadeLocal(
             @PathVariable(value = "cidade") String cidade) throws NotFoundEntityException {
-        return ResponseEntity.status(HttpStatus.OK).body((LocalModel) localService.getCidade(cidade));
+        return ResponseEntity.status(HttpStatus.OK).body(localService.getCidade(cidade));
     }
     @RequestMapping(value="/listaEstado/{estado}", method=RequestMethod.GET)
-    public ResponseEntity<LocalModel> listEstadoLocal(
+    public ResponseEntity<List<LocalModel>> listEstadoLocal(
             @PathVariable(value = "estado") String estado) throws NotFoundEntityException {
-        return ResponseEntity.status(HttpStatus.OK).body((LocalModel) localService.getEstado(estado));
+        return ResponseEntity.status(HttpStatus.OK).body(localService.getEstado(estado));
     }
     @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeLocal() {

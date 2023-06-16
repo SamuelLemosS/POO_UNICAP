@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity
 
 public class ClientePremiumModel extends ClienteModel {
+	private  int cartao;
 	private String agencia;
 	private int diasDePremium;
 }

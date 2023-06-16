@@ -40,11 +40,10 @@ public class ClientePremiumController {
                 .body(clientePremiumService.getOrderByDiasDePremium());
     }
 
-    @RequestMapping(value="/lista/{clienteId}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaId/{clienteId}", method=RequestMethod.GET)
     public ResponseEntity<ClientePremiumModel> listIdClientePremium(
             @PathVariable(value = "clienteId") Long id) throws NotFoundEntityException {
-        clientePremiumService.getClientePremiumById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(clientePremiumService.getClientePremiumById(id));
     }
     @RequestMapping(value="/listaAgencia/{agencia}", method=RequestMethod.GET)
     public ResponseEntity<List<ClientePremiumModel>> listIdClientePremium(
@@ -56,7 +55,7 @@ public class ClientePremiumController {
             @PathVariable(value = "diasDePremium") int diasDePremium) throws NotFoundEntityException {
         return ResponseEntity.status(HttpStatus.OK).body( clientePremiumService.getDiasDePremium(diasDePremium));
     }
-    @RequestMapping(value="/listaNomeEmail/{nome}/{email}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/listaNomeEmail/{nome}/{email}", method=RequestMethod.GET)
     public ResponseEntity<ClientePremiumModel> acharNomeEmailClientePremium(
             @PathVariable(value = "nome") String nome,
             @PathVariable(value = "email")String email) throws NotFoundEntityException {
