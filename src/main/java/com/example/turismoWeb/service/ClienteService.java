@@ -48,7 +48,6 @@ public class ClienteService {
         clienteExistente.setEmail(cliente.getEmail());
         clienteExistente.setTelefoneModel(cliente.getTelefoneModel());
         clienteExistente.setDestinoModel(cliente.getDestinoModel());
-        clienteExistente.setTeste(cliente.getTeste());
         clienteExistente.setDiasSemPremium(cliente.getDiasSemPremium());
 
         return clienteRepository.save(clienteExistente);

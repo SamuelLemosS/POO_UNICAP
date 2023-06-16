@@ -11,5 +11,4 @@ import lombok.NoArgsConstructor;
 @Entity
 public class ClienteEntity extends ClienteModel {
     private int diasSemPremium;
-    private  int teste;
 }
