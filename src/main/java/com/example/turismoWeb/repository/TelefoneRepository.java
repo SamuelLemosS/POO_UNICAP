@@ -6,11 +6,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TelefoneRepository extends JpaRepository<TelefoneModel, Long> {
-    TelefoneModel findByDddAndNumero(int ddd, int numero);
+    List<TelefoneModel> findAll();
+    List<TelefoneModel> findByIdIsNullOrDddNullOrNumeroIsNullOrderById();
+    Optional<TelefoneModel> findById(Long id);
     List<TelefoneModel> findByDdd(int ddd);
-    List<TelefoneModel> findByDddIsNotNullOrderById();
+    long count();
+    void deleteById(Long id);
     void deleteByDddAndNumero(int ddd, int numero);
 }

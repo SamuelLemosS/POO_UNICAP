@@ -5,13 +5,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DestinoRepository extends JpaRepository<DestinoModel, Long> {
-    DestinoModel findByNomeAndValor(String nome, float valor);
+    List<DestinoModel> findAll();
+    List<DestinoModel> findByIdIsNullOrNomeIsNullOrValorIsNullOrderByValor();
+    Optional<DestinoModel> findById(Long id);
     List<DestinoModel> findByNome(String nome);
     List<DestinoModel> findByValor(float valor);
-//    List<DestinoModel> findByDiaIsNotNullOrderByValor();
-//    List<DestinoModel> findByDiaIsNotNullOrderById();
+    DestinoModel findByNomeAndValor(String nome, float valor);
+    long count();
+    void deleteById(Long id);
     void deleteByNomeAndValor(String nome, float valor);
 }

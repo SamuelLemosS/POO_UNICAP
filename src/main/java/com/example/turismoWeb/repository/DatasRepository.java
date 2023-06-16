@@ -5,12 +5,16 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface DatasRepository extends JpaRepository<DatasModel, Long> {
-    DatasModel findByDiaAndMesAndAno(int dia, int mes, int ano);
+    List<DatasModel> findAll();
+    List<DatasModel> findByIdIsNullOrDiaIsNullOrMesIsNullOrAnoIsNullOrderById();
+    Optional<DatasModel> findById(Long id);
     List<DatasModel> findByMes(int mes);
     List<DatasModel> findByAno(int ano);
-    List<DatasModel> findByDiaIsNotNullOrderById();
+    long count();
+    void deleteById(Long id);
     void deleteByDiaAndMesAndAno(int dia, int mes, int ano);
 }

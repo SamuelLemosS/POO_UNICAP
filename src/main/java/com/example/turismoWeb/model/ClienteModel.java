@@ -19,7 +19,7 @@ public class ClienteModel {
 	private String nome;
 	private String email;
 	@OneToMany
-	private List<com.example.TurismoWeb.model.TelefoneModel> telefoneModel;
+	private List<com.example.turismoWeb.model.TelefoneModel> telefoneModel;
 	@ManyToMany
 	private List<DestinoModel> destinoModel;
 }
