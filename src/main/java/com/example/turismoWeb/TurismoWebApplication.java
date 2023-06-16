@@ -36,19 +36,19 @@ public class TurismoWebApplication {
 //--local/quantidade						V
 //--local/delete/{localId}					V
 //--local/delete/{distancia}/{cidade}		X
-//--local/update/{localId}					X
+//--local/update/{localId}					V
 //----------------------------------id/nome/valor/data/local
-//--destino/criar
-//--destino/listarTodos
-//--destino/vazio
-//--destino/lista/{destinoId}
-//--destino/lista/{nome}
+//--destino/criar						V
+//--destino/listarTodos					V
+//--destino/vazio						V
+//--destino/lista/{destinoId}			X
+//--destino/lista/{nome}				X
 //--destino/lista/{valor}
 //--destino/lista/{nome}/{valor}
-//--destino/quantidade
-//--destino/delete/{destinoId}
+//--destino/quantidade					V
+//--destino/delete/{destinoId}			V
 //--destino/delete/{nome}/{valor}
-//--destino/update/{destinoId}
+//--destino/update/{destinoId}			V
 //-------------------------------------id/ddd/numero
 //--telefone/criar
 //--telefone/listarTodos
