@@ -35,36 +35,20 @@ public class TelefoneController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(telefoneService.getTelefoneNull());
     }
-    @RequestMapping(value="/lista/{telefoneId}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaId/{telefoneId}", method=RequestMethod.GET)
     public ResponseEntity<TelefoneModel> listIdTelefone(
             @PathVariable(value = "telefoneId") Long id) throws NotFoundEntityException {
-        telefoneService.getTelefoneId(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(telefoneService.getTelefoneId(id));
     }
-    @RequestMapping(value="/lista/{ddd}", method=RequestMethod.GET)
-    public ResponseEntity<TelefoneModel> listDddTelefone(
+    @RequestMapping(value="/listaDdd/{ddd}", method=RequestMethod.GET)
+    public ResponseEntity<List<TelefoneModel>> listDddTelefone(
             @PathVariable(value = "ddd") int ddd) throws NotFoundEntityException {
-        telefoneService.getDdd(ddd);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(telefoneService.getDdd(ddd));
     }
     @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeTelefone() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(telefoneService.count());
-    }
-
-    @RequestMapping(value="/delete/{telefoneId}", method=RequestMethod.DELETE)
-    public ResponseEntity<TelefoneModel> deleteTelefone(
-            @PathVariable(value = "telefoneId") Long id) throws NotFoundEntityException {
-        telefoneService.deleteTelefone(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
-    }
-    @RequestMapping(value="/delete/{ddd}/{numero}", method=RequestMethod.DELETE)
-    public ResponseEntity<TelefoneModel> deleteDddNumeroTelefone(
-            @PathVariable(value = "ddd") int ddd,
-            @PathVariable(value = "numero")int numero) throws NotFoundEntityException {
-        telefoneService.deleteDddNumero(ddd,numero);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
 
@@ -76,5 +60,21 @@ public class TelefoneController {
                 .body((TelefoneModel) telefoneService.updateTelefone(id, telefone));
 
     }
+
+
+    @RequestMapping(value="/deleteId/{telefoneId}", method=RequestMethod.DELETE)
+    public ResponseEntity<TelefoneModel> deleteTelefone(
+            @PathVariable(value = "telefoneId") Long id) throws NotFoundEntityException {
+        telefoneService.deleteTelefone(id);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+    @RequestMapping(value="/deleteDddNumero/{ddd}/{numero}", method=RequestMethod.DELETE)
+    public ResponseEntity<TelefoneModel> deleteDddNumeroTelefone(
+            @PathVariable(value = "ddd") int ddd,
+            @PathVariable(value = "numero")int numero) throws NotFoundEntityException {
+        telefoneService.deleteDddNumero(ddd,numero);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+
 
 }

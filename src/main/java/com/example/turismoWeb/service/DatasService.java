@@ -49,6 +49,18 @@ public class DatasService {
         //new NotFoundEntityException("Cliente nao encontrado!"));
     }
 
+
+    public DatasModel updateData(Long id, DatasModel data) throws ChangeSetPersister.NotFoundException {
+        DatasModel datasExistente = datasRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        datasExistente.setId(data.getId());
+        datasExistente.setDia(data.getDia());
+        datasExistente.setMes(data.getMes());
+        datasExistente.setAno(data.getAno());
+
+        return datasRepository.save(datasExistente);
+    }
+
+
     public DatasModel deleteDatas(Long id){// throws NotFoundEntityException {
         datasRepository.deleteById(id);//.orElseThrow(() ->
         //new NotFoundEntityException("Cliente nao encontrado!"));
@@ -60,16 +72,7 @@ public class DatasService {
         return null;
     }
 
-    public DatasModel updateData(Long id, DatasModel data) throws ChangeSetPersister.NotFoundException {
-        DatasModel datasExistente = datasRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
-        datasExistente.setId(data.getId());
-        datasExistente.setDia(data.getDia());
-        datasExistente.setMes(data.getMes());
-        datasExistente.setAno(data.getAno());
 
-        return datasRepository.save(datasExistente);
-
-    }
 
 
 }

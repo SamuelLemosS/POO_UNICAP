@@ -29,42 +29,26 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(clienteService.getAllClientes());
     }
-    @RequestMapping(value="/lista/{clienteId}", method=RequestMethod.GET)
+    @RequestMapping(value="/vazio", method=RequestMethod.GET)
+    public ResponseEntity<List<ClienteEntity>> semNomeEmailCliente() {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(clienteService.getClienteNull());
+    }
+    @RequestMapping(value="/listaId/{clienteId}", method=RequestMethod.GET)
     public ResponseEntity<ClienteEntity> listIdCliente(
             @PathVariable(value = "clienteId") Long id) throws NotFoundEntityException {
-        clienteService.getClienteById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(clienteService.getClienteById(id));
+    }
+    @RequestMapping(value="/listaNomeEmail/{nome}/{email}", method=RequestMethod.GET)
+    public ResponseEntity<ClienteEntity> acharNomeEmailCliente(
+            @PathVariable(value = "nome") String nome,
+            @PathVariable(value = "email")String email) throws NotFoundEntityException {
+        return ResponseEntity.status(HttpStatus.OK).body(clienteService.getClienteByNomeAndEmail(nome,email));
     }
     @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeCliente() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(clienteService.count());
-    }
-    @RequestMapping(value="/semNomeEmail", method=RequestMethod.GET)
-    public ResponseEntity<List<ClienteEntity>> semNomeEmailCliente() {
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(clienteService.getClienteNull());
-    }
-    @RequestMapping(value="/achar/{nome}/{email}", method=RequestMethod.DELETE)
-    public ResponseEntity<ClienteEntity> acharNomeEmailCliente(
-            @PathVariable(value = "nome") String nome,
-            @PathVariable(value = "email")String email) throws NotFoundEntityException {
-        clienteService.getClienteByNomeAndEmail(nome,email);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
-    }
-
-    @RequestMapping(value="/delete/{nome}/{email}", method=RequestMethod.DELETE)
-    public ResponseEntity<ClienteEntity> deleteNomeEmailCliente(
-            @PathVariable(value = "nome") String nome,
-            @PathVariable(value = "email")String email) throws NotFoundEntityException {
-        clienteService.deleteByNomeAndEmail(nome,email);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
-    }
-    @RequestMapping(value="/delete/{clienteId}", method=RequestMethod.DELETE)
-    public ResponseEntity<ClienteEntity> deleteCliente(
-            @PathVariable(value = "clienteId") Long id) throws NotFoundEntityException {
-        clienteService.deleteCliente(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
     @RequestMapping(value="/update/{clienteId}", method=RequestMethod.PUT)
@@ -75,5 +59,22 @@ public class ClienteController {
                 .body((ClienteEntity) clienteService.updateCliente(id, cliente));
 
     }
+
+
+    @RequestMapping(value="/deleteId/{clienteId}", method=RequestMethod.DELETE)
+    public ResponseEntity<ClienteEntity> deleteCliente(
+            @PathVariable(value = "clienteId") Long id) throws NotFoundEntityException {
+        clienteService.deleteCliente(id);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+    @RequestMapping(value="/deleteNomeEmail/{nome}/{email}", method=RequestMethod.DELETE)
+    public ResponseEntity<ClienteEntity> deleteNomeEmailCliente(
+            @PathVariable(value = "nome") String nome,
+            @PathVariable(value = "email")String email) throws NotFoundEntityException {
+        clienteService.deleteByNomeAndEmail(nome,email);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+
+
 
 }

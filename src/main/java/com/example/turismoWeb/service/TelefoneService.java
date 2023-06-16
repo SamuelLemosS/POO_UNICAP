@@ -41,6 +41,16 @@ public class TelefoneService {
     }
 
 
+    public Object updateTelefone(Long id, TelefoneModel telefone) throws ChangeSetPersister.NotFoundException {
+        TelefoneModel telefoneExistente = telefoneRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        telefoneExistente.setId(telefone.getId());
+        telefoneExistente.setDdd(telefone.getDdd());
+        telefoneExistente.setNumero(telefone.getNumero());
+
+        return telefoneRepository.save(telefoneExistente);
+    }
+
+
     public TelefoneModel deleteTelefone(Long id){// throws NotFoundEntityException {
         telefoneRepository.deleteById(id);//.orElseThrow(() ->
         //new NotFoundEntityException("Cliente nao encontrado!"));
@@ -52,13 +62,5 @@ public class TelefoneService {
         return null;
     }
 
-    public Object updateTelefone(Long id, TelefoneModel telefone) throws ChangeSetPersister.NotFoundException {
-        TelefoneModel telefoneExistente = telefoneRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
-        telefoneExistente.setId(telefone.getId());
-        telefoneExistente.setDdd(telefone.getDdd());
-        telefoneExistente.setNumero(telefone.getNumero());
-
-        return telefoneRepository.save(telefoneExistente);
-    }
 
 }

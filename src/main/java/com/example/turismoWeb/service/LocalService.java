@@ -42,6 +42,17 @@ public class LocalService {
         //new NotFoundEntityException("Cliente nao encontrado!"));
     }
 
+    public Object updateLocal(Long id, LocalModel local) throws ChangeSetPersister.NotFoundException {
+        LocalModel localExistente = localRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        localExistente.setId(local.getId());
+        localExistente.setEstado(local.getEstado());
+        localExistente.setCidade(local.getCidade());
+        localExistente.setDistancia(local.getDistancia());
+
+        return localRepository.save(localExistente);
+    }
+
+
     public LocalModel deleteLocal(Long id){// throws NotFoundEntityException {
         localRepository.deleteById(id);//.orElseThrow(() ->
         //new NotFoundEntityException("Cliente nao encontrado!"));
@@ -53,14 +64,5 @@ public class LocalService {
         return null;
     }
 
-    public Object updateLocal(Long id, LocalModel local) throws ChangeSetPersister.NotFoundException {
-        LocalModel localExistente = localRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
-        localExistente.setId(local.getId());
-        localExistente.setEstado(local.getEstado());
-        localExistente.setCidade(local.getCidade());
-        localExistente.setDistancia(local.getDistancia());
-
-        return localRepository.save(localExistente);
-    }
 
 }

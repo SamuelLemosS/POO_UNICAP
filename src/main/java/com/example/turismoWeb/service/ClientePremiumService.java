@@ -53,17 +53,6 @@ public class ClientePremiumService {
 
 
 
-    public ClientePremiumModel deleteClientePremium(Long id){// throws NotFoundEntityException {
-        clientePremiumRepository.deleteById(id);//.orElseThrow(() ->
-        //new NotFoundEntityException("Cliente nao encontrado!"));
-        return null;
-    }
-    public ClientePremiumModel deleteByNomeAndEmail(String nome, String email){// throws NotFoundEntityException {
-        clientePremiumRepository.deleteByNomeAndEmail(nome, email);//.orElseThrow(() ->
-        //new NotFoundEntityException("Cliente nao encontrado!"));
-        return null;
-    }
-
     public Object updateClientePremium(Long id, ClientePremiumModel cliente) throws ChangeSetPersister.NotFoundException {
         ClientePremiumModel clienteExistente = clientePremiumRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
         clienteExistente.setId(cliente.getId());
@@ -75,5 +64,18 @@ public class ClientePremiumService {
         clienteExistente.setDiasDePremium(cliente.getDiasDePremium());
 
         return clientePremiumRepository.save(clienteExistente);
+    }
+
+
+
+    public ClientePremiumModel deleteClientePremium(Long id){// throws NotFoundEntityException {
+        clientePremiumRepository.deleteById(id);//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
+        return null;
+    }
+    public ClientePremiumModel deleteByNomeAndEmail(String nome, String email){// throws NotFoundEntityException {
+        clientePremiumRepository.deleteByNomeAndEmail(nome, email);//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
+        return null;
     }
 }

@@ -49,17 +49,6 @@ public class DestinoService {
     }
 
 
-    public DestinoModel deleteDestino (Long id){// throws NotFoundEntityException {
-        destinoRepository.deleteById(id);//.orElseThrow(() ->
-        //new NotFoundEntityException("Cliente nao encontrado!"));
-        return null;
-    }
-    public DestinoModel deleteNomeValor(String nome, float valor){// throws NotFoundEntityException {
-        destinoRepository.deleteByNomeAndValor(nome,valor);//.orElseThrow(() ->
-        //new NotFoundEntityException("Cliente nao encontrado!"));
-        return null;
-    }
-
     public Object updateDestino(Long id, DestinoModel destino) throws ChangeSetPersister.NotFoundException {
         DestinoModel destinoExistente = destinoRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
         destinoExistente.setId(destino.getId());
@@ -69,6 +58,18 @@ public class DestinoService {
         destinoExistente.setLocalModel(destino.getLocalModel());
 
         return destinoRepository.save(destinoExistente);
+    }
+
+
+    public DestinoModel deleteDestino (Long id){// throws NotFoundEntityException {
+        destinoRepository.deleteById(id);//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
+        return null;
+    }
+    public DestinoModel deleteNomeValor(String nome, float valor){// throws NotFoundEntityException {
+        destinoRepository.deleteByNomeAndValor(nome,valor);//.orElseThrow(() ->
+        //new NotFoundEntityException("Cliente nao encontrado!"));
+        return null;
     }
 
 

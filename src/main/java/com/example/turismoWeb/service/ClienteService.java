@@ -15,6 +15,11 @@ public class ClienteService {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    public ClienteEntity createCliente(ClienteEntity cliente) {
+        clienteRepository.save(cliente);
+        return cliente;
+    }
+
     public List<ClienteEntity> getAllClientes() {
         return clienteRepository.findAll();
     }
@@ -36,6 +41,18 @@ public class ClienteService {
     }
 
 
+    public Object updateCliente(Long id, ClienteEntity cliente) throws ChangeSetPersister.NotFoundException {
+        ClienteEntity clienteExistente = clienteRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
+        clienteExistente.setId(cliente.getId());
+        clienteExistente.setNome(cliente.getNome());
+        clienteExistente.setEmail(cliente.getEmail());
+        clienteExistente.setTelefoneModel(cliente.getTelefoneModel());
+        clienteExistente.setDestinoModel(cliente.getDestinoModel());
+
+        return clienteRepository.save(clienteExistente);
+    }
+
+
     public ClienteEntity deleteCliente(Long id){// throws NotFoundEntityException {
          clienteRepository.deleteById(id);//.orElseThrow(() ->
                 //new NotFoundEntityException("Cliente nao encontrado!"));
@@ -47,19 +64,6 @@ public class ClienteService {
         return null;
     }
 
-    public ClienteEntity createCliente(ClienteEntity cliente) {
-        clienteRepository.save(cliente);
-        return cliente;
-    }
 
-    public Object updateCliente(Long id, ClienteEntity cliente) throws ChangeSetPersister.NotFoundException {
-        ClienteEntity clienteExistente = clienteRepository.findById(id).orElseThrow(() -> new ChangeSetPersister.NotFoundException());
-        clienteExistente.setId(cliente.getId());
-        clienteExistente.setNome(cliente.getNome());
-        clienteExistente.setEmail(cliente.getEmail());
-        clienteExistente.setTelefoneModel(cliente.getTelefoneModel());
-        clienteExistente.setDestinoModel(cliente.getDestinoModel());
 
-        return clienteRepository.save(clienteExistente);
-    }
 }

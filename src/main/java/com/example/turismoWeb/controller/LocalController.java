@@ -35,42 +35,25 @@ public class LocalController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(localService.getLocalNull());
     }
-    @RequestMapping(value="/lista/{localId}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaId/{localId}", method=RequestMethod.GET)
     public ResponseEntity<LocalModel> listIdLocal(
             @PathVariable(value = "localId") Long id) throws NotFoundEntityException {
-        localService.getLocalById(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(localService.getLocalById(id));
     }
-    @RequestMapping(value="/lista/{cidade}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaCidade/{cidade}", method=RequestMethod.GET)
     public ResponseEntity<LocalModel> listCidadeLocal(
             @PathVariable(value = "cidade") String cidade) throws NotFoundEntityException {
-        localService.getCidade(cidade);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body((LocalModel) localService.getCidade(cidade));
     }
-    @RequestMapping(value="/lista/{estado}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaEstado/{estado}", method=RequestMethod.GET)
     public ResponseEntity<LocalModel> listEstadoLocal(
             @PathVariable(value = "estado") String estado) throws NotFoundEntityException {
-        localService.getEstado(estado);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body((LocalModel) localService.getEstado(estado));
     }
     @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeLocal() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(localService.count());
-    }
-
-    @RequestMapping(value="/delete/{localId}", method=RequestMethod.DELETE)
-    public ResponseEntity<LocalModel> deleteLocal(
-            @PathVariable(value = "localId") Long id) throws NotFoundEntityException {
-        localService.deleteLocal(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
-    }
-    @RequestMapping(value="/delete/{distancia}/{cidade}", method=RequestMethod.DELETE)
-    public ResponseEntity<LocalModel> deleteDistanciaCidadeLocal(
-            @PathVariable(value = "distancia") int distancia,
-            @PathVariable(value = "cidade")String cidade) throws NotFoundEntityException {
-        localService.deleteDistanciaCidade(distancia,cidade);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
 
@@ -82,5 +65,21 @@ public class LocalController {
                 .body((LocalModel) localService.updateLocal(id, local));
 
     }
+
+
+    @RequestMapping(value="/deleteId/{localId}", method=RequestMethod.DELETE)
+    public ResponseEntity<LocalModel> deleteLocal(
+            @PathVariable(value = "localId") Long id) throws NotFoundEntityException {
+        localService.deleteLocal(id);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+    @RequestMapping(value="/deleteDistanciaCidade/{distancia}/{cidade}", method=RequestMethod.DELETE)
+    public ResponseEntity<LocalModel> deleteDistanciaCidadeLocal(
+            @PathVariable(value = "distancia") int distancia,
+            @PathVariable(value = "cidade")String cidade) throws NotFoundEntityException {
+        localService.deleteDistanciaCidade(distancia,cidade);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+
 
 }

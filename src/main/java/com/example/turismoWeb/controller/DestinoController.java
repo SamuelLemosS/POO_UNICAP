@@ -35,49 +35,31 @@ public class DestinoController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(destinoService.getDestinoNull());
     }
-    @RequestMapping(value="/lista/{destinoId}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaId/{destinoId}", method=RequestMethod.GET)
     public ResponseEntity<DestinoModel> listIdDestino(
             @PathVariable(value = "destinoId") Long id) throws NotFoundEntityException {
-        destinoService.getDestinoId(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(destinoService.getDestinoId(id));
     }
-    @RequestMapping(value="/lista/{nome}", method=RequestMethod.GET)
-    public ResponseEntity<DestinoModel> listNomeDestino(
+    @RequestMapping(value="/listaNome/{nome}", method=RequestMethod.GET)
+    public ResponseEntity<List<DestinoModel>> listNomeDestino(
             @PathVariable(value = "nome") String nome) throws NotFoundEntityException {
-        destinoService.getNome(nome);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(destinoService.getNome(nome));
     }
-    @RequestMapping(value="/lista/{valor}", method=RequestMethod.GET)
-    public ResponseEntity<DestinoModel> listValorDestino(
+    @RequestMapping(value="/listaValor/{valor}", method=RequestMethod.GET)
+    public ResponseEntity<List<DestinoModel>> listValorDestino(
             @PathVariable(value = "valor") float valor) throws NotFoundEntityException {
-        destinoService.getValor(valor);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(destinoService.getValor(valor));
     }
-    @RequestMapping(value="/lista/{nome}/{valor}", method=RequestMethod.GET)
+    @RequestMapping(value="/listaNomeValor/{nome}/{valor}", method=RequestMethod.GET)
     public ResponseEntity<DestinoModel> listNomeValorDestino(
             @PathVariable(value = "nome") String nome,
             @PathVariable(value = "valor") float valor) throws NotFoundEntityException {
-        destinoService.getNomeValor(nome, valor);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(destinoService.getNomeValor(nome, valor));
     }
     @RequestMapping(value="/quantidade", method=RequestMethod.GET)
     public ResponseEntity<Long> quantidaeDestino() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(destinoService.count());
-    }
-
-    @RequestMapping(value="/delete/{destinoId}", method=RequestMethod.DELETE)
-    public ResponseEntity<DestinoModel> deleteDestino(
-            @PathVariable(value = "destinoId") Long id) throws NotFoundEntityException {
-        destinoService.deleteDestino(id);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
-    }
-    @RequestMapping(value="/delete/{nome}/{valor}", method=RequestMethod.DELETE)
-    public ResponseEntity<DestinoModel> deleteNomeValorDestino(
-            @PathVariable(value = "nome") String nome,
-            @PathVariable(value = "valor")float valor) throws NotFoundEntityException {
-        destinoService.deleteNomeValor(nome,valor);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
 
@@ -89,5 +71,21 @@ public class DestinoController {
                 .body((DestinoModel) destinoService.updateDestino(id, destino));
 
     }
+
+
+    @RequestMapping(value="/deleteId/{destinoId}", method=RequestMethod.DELETE)
+    public ResponseEntity<DestinoModel> deleteDestino(
+            @PathVariable(value = "destinoId") Long id) throws NotFoundEntityException {
+        destinoService.deleteDestino(id);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+    @RequestMapping(value="/deleteNomeValor/{nome}/{valor}", method=RequestMethod.DELETE)
+    public ResponseEntity<DestinoModel> deleteNomeValorDestino(
+            @PathVariable(value = "nome") String nome,
+            @PathVariable(value = "valor")float valor) throws NotFoundEntityException {
+        destinoService.deleteNomeValor(nome,valor);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+
 
 }
